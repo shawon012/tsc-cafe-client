@@ -2,8 +2,11 @@ import React from 'react';
 import { Button, Container, Image } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useLoaderData } from 'react-router-dom';
+import ChefCard from '../../ChefCard/ChefCard';
 
 const Home = () => {
+    const chefs = useLoaderData();
     return (
         <Container>
             <div className="position-relative">
@@ -20,7 +23,12 @@ const Home = () => {
                     <p>Curious? Here are our most popular chefs</p>
                 </div>
                 <div>
-                   
+                   {
+                    chefs.map(chef => <ChefCard
+                    key={chef.chef_id}
+                    chef={chef}
+                    ></ChefCard>)
+                   }
                 </div>
             </div>
         </Container>

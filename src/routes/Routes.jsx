@@ -9,7 +9,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch(`https://the-tsc-cafe-server-shawon012.vercel.app/chefs`)
             }
         ]
     }
