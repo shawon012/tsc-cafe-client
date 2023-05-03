@@ -1,10 +1,11 @@
 import React from 'react';
 import './Hooter.css';
-import { Container } from 'react-bootstrap';
+import { Container, Navbar } from 'react-bootstrap';
 
 const Hooter = () => {
     return (
-        <Container className="bg-secondary d-flex justify-content-between align-items-center width='100%'">
+        <div className='bg-secondary'>
+            <Container className="d-flex justify-content-between align-items-center width='100%'">
             <div className='text-black ps-3 pt-3 pe-3'>
                 <h1>Contact Us</h1> <br />
                 <div>
@@ -39,6 +40,7 @@ const Hooter = () => {
                 </div>
             </div>
         </Container>
+        </div>
     );
 };
 
