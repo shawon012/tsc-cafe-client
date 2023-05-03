@@ -8,7 +8,7 @@ import ChefCard from '../../ChefCard/ChefCard';
 const Home = () => {
     const chefs = useLoaderData();
     return (
-        <Container>
+        <Container className='mb-5 pb-5'>
             <div className="position-relative">
                 <Image src='/The TSC CaFE.png' alt="My Image" className="img-fluid" height='100%' width='100%' />
                 <div className="position-absolute top-50 start-50 translate-middle">
@@ -72,6 +72,25 @@ const Home = () => {
                             </Col>
                         </Row>
                     </Container>
+                </div>
+            </div>
+            <div>
+                <div className='text-center mt-5'>
+                    <h3>All About Us!</h3>
+                    <p>Learn More About Us</p>
+                </div>
+                <div className='d-flex align-items-center mt-5 pt-5 pb-5 bg-black text-white ps-5 pe-5'>
+                    <div className='flex-grow-1'>
+                        <h1>All About Us</h1>
+                    </div>
+                    <div>
+                        <p>We have been serving irresistible comfort food since <br /> 1999. Our mission is to keep you-good meal today! </p>
+                        <br />
+                        <p>Treat yourself to a feel-good meal today!</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="/cover.png" alt="" width="100%" />
                 </div>
             </div>
 
