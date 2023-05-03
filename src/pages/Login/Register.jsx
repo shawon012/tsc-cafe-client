@@ -3,17 +3,20 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
+
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+
+    const { createUser, updateProfile } = useContext(AuthContext);
+
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
-        const photo = form.photo.value;
+        const displayName = form.name.value;
+        const photoURL = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(name, photo, email, password)
+        console.log(displayName, photoURL, email, password)
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
@@ -22,6 +25,8 @@ const Register = () => {
             .catch(error => {
                 console.log(error);
             })
+        
+           
     }
 
     return (

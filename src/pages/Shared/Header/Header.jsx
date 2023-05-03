@@ -27,7 +27,8 @@ const Header = () => {
                 </Nav>
                 <Nav>
                     {user ?
-                        <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
+
+                        <Button onClick={handleLogOut} variant="secondary">{user.email}</Button> :
                         <Link to="/login">
                             <Button variant="secondary">Login</Button>
                         </Link>
