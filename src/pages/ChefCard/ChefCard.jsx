@@ -6,7 +6,7 @@ const ChefCard = ({ chef }) => {
     const { chef_picture, chef_name, chef_id, year_of_experience, number_of_recipes, likes, short_bio } = chef
     return (
         <Col className='col-4 gap-3  rounded mb-5'>
-            <div className=''>
+            <div>
                 <img src={chef_picture} alt="" height='350px' width='100%' className='rounded' />
                 <div className=''>
                     <h3 className='pt-2'>{chef_name}</h3>
