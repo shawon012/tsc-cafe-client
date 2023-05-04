@@ -1,8 +1,20 @@
-import React from 'react';
-import { Button, Col, Container } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Col, Container, Toast, ToastContainer } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeCard = ({ recipe }) => {
     const { recipe_name, ingredients, cooking_method, rating, id, image, chefrecipe, chef_picture, chef_name, chef_id, year_of_experience, number_of_recipes, likes, short_bio } = recipe;
+    const [showToast, setShowToast] = useState(false);
+    const [buttonDisabled, setButtonDisabled] = useState(false);
+    const handleButtonClick = () => {
+        setShowToast(true);
+        setButtonDisabled(true);
+    };
+
+    const handleToastClose = () => {
+        setShowToast(false);
+    };
     return (
 
         <Col className='col-4 gap-3  rounded mb-5'>
@@ -16,7 +28,15 @@ const RecipeCard = ({ recipe }) => {
                 </div>
             </div>
             <div>
-                <Button variant="outline-success">Add To favourite</Button>
+                <Button variant="outline-success" onClick={handleButtonClick} disabled={buttonDisabled}>
+                    Add To favourite
+                </Button>
+                <Toast show={showToast} onClose={handleToastClose}>
+                    <Toast.Header>
+                        <strong className="mr-auto">Favorite Recipe</strong>
+                    </Toast.Header>
+                    <Toast.Body>This recipe has been added to your favorites!</Toast.Body>
+                </Toast>
             </div>
         </Col>
 

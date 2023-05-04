@@ -1,16 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext)
+    const { signIn, signInGoogle, signInGithub } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
     console.log('login page location', location)
     const from = location.state?.from?.pathname || '/'
+    const [error, setError] = useState(null);
 
     const handleLogin = event => {
+        
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -24,7 +26,29 @@ const Login = () => {
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.log(error);
+                setError(error.message);
+            })
+    }
+    const googleLogin = () => {
+        signInGoogle()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
+    const githubLogin = () => {
+        signInGithub()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                setError(error.message);
             })
     }
     return (
@@ -41,10 +65,22 @@ const Login = () => {
                     <Form.Control type="password" name='password' placeholder="Password" />
                 </Form.Group>
                 <p><small>New To TSC Cafe? Please <Link to='/register'>Register!</Link></small></p>
-                <Button variant="primary" type="submit">
+                {error && <p className='text-danger'>{error}</p> }
+                <Button variant="primary" type="submit" className='mb-4'>
                     Submit
                 </Button>
+                <div className='d-flex  align-items-center'>
+                    <div className='pe-5'>
+                        <img src="/google.jpg" alt="" height='30px' width="30px" />
+                        <p onClick={googleLogin} >Google</p>
+                    </div>
+                    <div>
+                        <img src="/github.jpg" alt="" height='30px' width="30px" />
+                        <p onClick={githubLogin}>Github</p>
+                    </div>
+                </div>
             </Form>
+
         </Container>
     );
 };

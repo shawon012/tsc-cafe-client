@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
@@ -6,7 +6,10 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
 
-    const { createUser, updateProfile } = useContext(AuthContext);
+    
+    const [error, setError] = useState(null);
+
+    const { createUser } = useContext(AuthContext);
 
     const handleRegister = event => {
         event.preventDefault();
@@ -15,6 +18,17 @@ const Register = () => {
         const photoURL = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+
+        if (!email || !password) {
+            setError('Please fill in all fields.');
+            return;
+          }
+          
+          
+          if (password.length < 6) {
+            setError('Password must be at least 6 characters long.');
+            return;
+          }
 
         console.log(displayName, photoURL, email, password)
         createUser(email, password)
@@ -25,8 +39,8 @@ const Register = () => {
             .catch(error => {
                 console.log(error);
             })
-        
-           
+
+
     }
 
     return (
@@ -51,6 +65,7 @@ const Register = () => {
                     <Form.Control type="password" name='password' placeholder="Password" />
                 </Form.Group>
                 <p><small>Already Registered? Please <Link to='/login'>Login!</Link></small></p>
+                {error && <p className='text-danger'>{error}</p> }
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
