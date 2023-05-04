@@ -70,13 +70,13 @@ const Login = () => {
                     Submit
                 </Button>
                 <div className='d-flex  align-items-center'>
-                    <div className='pe-5'>
+                    <div onClick={googleLogin} className='pe-5'>
                         <img src="/google.jpg" alt="" height='30px' width="30px" />
-                        <p onClick={googleLogin} >Google</p>
+                        <p >Google</p>
                     </div>
-                    <div>
+                    <div onClick={githubLogin}>
                         <img src="/github.jpg" alt="" height='30px' width="30px" />
-                        <p onClick={githubLogin}>Github</p>
+                        <p >Github</p>
                     </div>
                 </div>
             </Form>
