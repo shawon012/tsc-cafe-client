@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Toast, ToastContainer } from 'react-bootstrap';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeCard = ({ recipe }) => {

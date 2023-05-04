@@ -5,6 +5,8 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
 import ChefRecipe from "../pages/ChefRecipe/ChefRecipe";
 import PrivateRoute from "./PrivateRoute";
+import Notfound from "../pages/Notfound/Notfound";
+import Blog from "../pages/Shared/Blog/Blog";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
                 path: '/chefRecipe/:id',
                 element: <PrivateRoute><ChefRecipe></ChefRecipe></PrivateRoute>,
                 loader: ({params}) => fetch(`https://the-tsc-cafe-server-shawon012.vercel.app/chefRecipe/${params.id}`)
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+            {
+                path: '*',
+                element: <Notfound></Notfound>
             }
         ]
     }
