@@ -17,3 +17,10 @@
   color: black;
   
 }
+.btn-download{
+  background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity));
+  text-decoration: none;
+  color: cadetblue;
+  border: none;
+  padding: 0px;
+}

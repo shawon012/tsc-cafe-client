@@ -9,7 +9,7 @@ const ChefCard = ({ chef }) => {
         <Col xs={12} md={4} className='gap-3  rounded mb-5'>
             <div>
                 <div>
-                <LazyLoad height={350} offset={200} debounce={1500}>
+                <LazyLoad height={350} offset={100} debounce={500}>
                     <img src={chef_picture} alt="" height='350px' width='100%' className='rounded' />
                 </LazyLoad>
                 </div>
