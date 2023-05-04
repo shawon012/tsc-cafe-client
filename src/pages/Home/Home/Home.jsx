@@ -43,7 +43,7 @@ const Home = () => {
                 <div>
                     <Container>
                         <Row>
-                            <Col className='col-4 gap-3  rounded mb-5'>
+                            <Col xs={12} md={4} className=' gap-3  rounded mb-5'>
                                 <div className=''>
                                     <img src={`https://images.unsplash.com/photo-1682997843688-94722786a722?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60`} alt="" height='350px' width='100%' className='rounded' />
                                     <div className=''>
@@ -52,7 +52,7 @@ const Home = () => {
                                     </div>
                                 </div>
                             </Col>
-                            <Col className='col-4 gap-3  rounded mb-5'>
+                            <Col xs={12} md={4} className=' gap-3  rounded mb-5'>
                                 <div className=''>
                                     <img src={`https://images.unsplash.com/photo-1682862261357-31c4ec647807?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60`} alt="" height='350px' width='100%' className='rounded' />
                                     <div className=''>
@@ -61,7 +61,7 @@ const Home = () => {
                                     </div>
                                 </div>
                             </Col>
-                            <Col className='col-4 gap-3  rounded mb-5'>
+                            <Col xs={12} md={4} className=' gap-3  rounded mb-5'>
                                 <div className=''>
                                     <img src={`https://images.unsplash.com/photo-1682997843692-c3cf1cb9caf9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60`} alt="" height='350px' width='100%' className='rounded' />
                                     <div className=''>
@@ -79,7 +79,7 @@ const Home = () => {
                     <h3>All About Us!</h3>
                     <p>Learn More About Us</p>
                 </div>
-                <div className='d-flex align-items-center mt-5 pt-5 pb-5 bg-black text-white ps-5 pe-5'>
+                <div className='d-flex flex-column flex-md-row align-items-center mt-5 pt-5 pb-5 bg-black text-white ps-5 pe-5'>
                     <div className='flex-grow-1'>
                         <h1>All About Us</h1>
                     </div>

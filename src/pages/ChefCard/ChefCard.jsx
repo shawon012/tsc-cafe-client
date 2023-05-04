@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const ChefCard = ({ chef }) => {
     const { chef_picture, chef_name, chef_id, year_of_experience, number_of_recipes, likes, short_bio } = chef
     return (
-        <Col className='col-4 gap-3  rounded mb-5'>
+        <Col xs={12} md={4} className='gap-3  rounded mb-5'>
             <div>
                 <img src={chef_picture} alt="" height='350px' width='100%' className='rounded' />
                 <div className=''>

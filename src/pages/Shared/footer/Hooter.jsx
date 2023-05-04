@@ -5,7 +5,7 @@ import { Container, Navbar } from 'react-bootstrap';
 const Hooter = () => {
     return (
         <div className='bg-secondary'>
-            <Container className="d-flex justify-content-between align-items-center width='100%'">
+            <Container  className="d-flex flex-column flex-md-row justify-content-between align-items-center width='100%'">
             <div className='text-black ps-3 pt-3 pe-3'>
                 <h1>Contact Us</h1> <br />
                 <div>
