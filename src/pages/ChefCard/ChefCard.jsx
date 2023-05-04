@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const ChefCard = ({ chef }) => {
@@ -7,7 +8,13 @@ const ChefCard = ({ chef }) => {
     return (
         <Col xs={12} md={4} className='gap-3  rounded mb-5'>
             <div>
-                <img src={chef_picture} alt="" height='350px' width='100%' className='rounded' />
+                <div>
+                <LazyLoad height={350} offset={200} debounce={1500}>
+                    <img src={chef_picture} alt="" height='350px' width='100%' className='rounded' />
+                </LazyLoad>
+                </div>
+
+
                 <div className=''>
                     <h3 className='pt-2'>{chef_name}</h3>
                     <h4>Year of Experience: {year_of_experience}</h4>
