@@ -1,11 +1,17 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 import './Header.css'
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+
+    const renderTooltip = (props) => (
+        <Tooltip id="user-name-tooltip" {...props}>
+            {user.displayName}
+        </Tooltip>
+    );
 
     const handleLogOut = () => {
         logOut()
@@ -24,7 +30,7 @@ const Header = () => {
                 </Nav>
                 <Nav>
                     <Nav.Link>
-                        <NavLink className= {location.pathname === '/' ? 'active-link' : 'text'} to="/" activeClassName="active-link">
+                        <NavLink className={location.pathname === '/' ? 'active-link' : 'text'} to="/" activeClassName="active-link">
                             Home
                         </NavLink>
                     </Nav.Link>
@@ -35,13 +41,32 @@ const Header = () => {
                     </Nav.Link>
                 </Nav>
                 <Nav>
-                    {user ?
+                    {user ? (
+                        <div className='d-flex'>
+                            <div className='me-3'>
+                                <OverlayTrigger
+                                    placement="bottom"
+                                    delay={{ show: 250, hide: 400 }}
+                                    overlay={renderTooltip}
+                                >
+                                    <img
+                                        src={user.photoURL} // replace with actual user's profile picture
+                                        alt="Profile Picture"
+                                        className="rounded-circle mr-2"
+                                        width="40"
+                                        height="40"
+                                    />
 
-                        <Button onClick={handleLogOut} variant="secondary">{user.email}</Button> :
-                        <Link to="/login">
-                            <Button variant="secondary">Login</Button>
-                        </Link>
-                    }
+                                </OverlayTrigger>
+                            </div>
+                            <div>
+                                <Button onClick={handleLogOut} variant="secondary" className='texta'> <Link className='textaa' >Logout</Link> </Button>
+                            </div>
+                        </div>
+
+                    ) : (
+                        <Button className='texta' variant="secondary"> <Link className='textaa' to="/login">Login</Link> </Button>
+                    )}
                 </Nav>
             </Container>
         </Navbar>

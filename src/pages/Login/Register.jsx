@@ -31,14 +31,14 @@ const Register = () => {
           }
 
         console.log(displayName, photoURL, email, password)
-        createUser(email, password)
-            .then(result => {
-                const createdUser = result.user;
-                console.log(createdUser);
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        createUser(email, password, photoURL, displayName)
+            // .then(result => {
+            //     const createdUser = result.user;
+            //     console.log(createdUser);
+            // })
+            // .catch(error => {
+            //     console.log(error);
+            // })
 
 
     }
