@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBRKir_c3t96TulBX1E_yp7ztEwBk8Zj2U",
-  authDomain: "the-tsc-cafe-client.firebaseapp.com",
-  projectId: "the-tsc-cafe-client",
-  storageBucket: "the-tsc-cafe-client.appspot.com",
-  messagingSenderId: "288841927399",
-  appId: "1:288841927399:web:a6aa35f96806161e6b3042"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.VITE_APPID
 };
 
 // Initialize Firebase
