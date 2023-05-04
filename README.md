@@ -7,3 +7,5 @@
 - If i login properly i will go to chef recipe page
 - In Chef Recipe page If i click button add to favourite it will added to favourite.
 - In the home page there is header and footer that will be available for each page.
+- My wesite link: https://the-tsc-cafe-client.web.app
+- My server link:  https://the-tsc-cafe-server-shawon012.vercel.app
