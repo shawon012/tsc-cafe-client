@@ -79,7 +79,7 @@ const Header = () => {
 
                                 </OverlayTrigger>
                             </div>
-                            <div>
+                            <div className='d-none d-md-block'>
                                 <Button onClick={handleLogOut} variant="secondary" className='texta'> <Link className='textaa' >Logout</Link> </Button>
                             </div>
                         </div>
